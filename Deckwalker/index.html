@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Deckwalker</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="game-canvas" width="480" height="270"></canvas>
+
+  <div id="hud">
+    <div id="hud-top">
+      <div id="hud-level-name"></div>
+      <div id="hud-gold-wrap">Gold: <span id="hud-gold">0</span></div>
+    </div>
+    <div id="hud-hp-bar"><div id="hud-hp-fill"></div><span id="hud-hp-text"></span></div>
+    <div id="hud-slots">
+      <div class="hud-slot" id="hud-slot-I"><div class="key-badge">I</div><div class="slot-label">-</div></div>
+      <div class="hud-slot" id="hud-slot-J"><div class="key-badge">J</div><div class="slot-label">-</div></div>
+      <div class="hud-slot" id="hud-slot-K"><div class="key-badge">K</div><div class="slot-label">-</div></div>
+      <div class="hud-slot" id="hud-slot-L"><div class="key-badge">L</div><div class="slot-label">-</div></div>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <div class="screen active" id="screen-menu">
+    <img id="title-art" src="assets/art/title_key_art.png" alt="Deckwalker Titelbild">
+    <h1>DECKWALKER</h1>
+    <p class="subtitle">Ein Sidescroller-Deckbuilder aus einer vergessenen Fantasywelt</p>
+    <div id="slot-list"></div>
+    <div id="permanent-collection"></div>
+    <p class="controls-hint">Steuerung: WASD bewegen/springen · IJKL Angriffe &amp; Fähigkeiten</p>
+  </div>
+
+  <div class="screen" id="screen-camp">
+    <h2>Lager &amp; Charakter</h2>
+    <div id="camp-stats">
+      <span id="camp-level-name"></span>
+      <span>Gold: <span id="camp-gold"></span></span>
+      <span>Leben: <span id="camp-hp"></span></span>
+    </div>
+    <h3>Gebundene Fähigkeiten</h3>
+    <div id="camp-slots"></div>
+    <h3>Deck (dieser Run)</h3>
+    <div id="camp-deck"></div>
+    <div class="camp-actions">
+      <button id="btn-camp-save">Speichern</button>
+      <button id="btn-menu-from-camp" class="secondary">Hauptmenü</button>
+      <button id="btn-camp-continue" class="primary">Level starten</button>
+    </div>
+  </div>
+
+  <div class="screen" id="screen-reward">
+    <h2>Belohnungskiste</h2>
+    <p>Du erhältst <span id="reward-gold"></span> Gold.</p>
+    <p>Wähle eine neue Karte für dein Deck:</p>
+    <div id="reward-cards"></div>
+    <button id="btn-reward-continue" class="primary">Weiter ins Lager</button>
+  </div>
+
+  <div class="screen" id="screen-gameover">
+    <h2>Gefallen...</h2>
+    <p>Deine Reise endet hier - vorerst.</p>
+    <button id="btn-gameover-checkpoint" class="primary">Vom Speicherpunkt fortsetzen</button>
+    <button id="btn-gameover-menu" class="secondary">Hauptmenü</button>
+  </div>
+
+  <div class="screen" id="screen-win">
+    <h2>Die Asche verstummt</h2>
+    <p>Du hast den Aschekönig besiegt und die Aschekathedrale bezwungen.</p>
+    <button id="btn-win-menu" class="primary">Zurück zum Hauptmenü</button>
+  </div>
+</div>
+
+<script src="js/save.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/pixelart.js"></script>
+<script src="js/entities.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

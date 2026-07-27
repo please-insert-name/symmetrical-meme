@@ -1,0 +1,77 @@
+Claude, alter Freund. Heute wollen wir eine Spielmechanik testen. Dazu gebe ich dir hier einen Prompt mit detaillierten Anweisungen für die Umsetzung. Greife bei der Umsetzung nicht auf Vorarbeiten aus anderen Chats zurück. Orientiere dich ausschließlich an den hier gegebenen Anweisungen.
+
+
+# Konzept
+## Arbeitstitel
+Arx Lumina (Combat Mechanics)
+
+## Worum geht es?
+Ich will mit dir eine Spielmechanik für ein Kampfsystem implementieren. Die Implementierung wird für das Playtesting mit anspruchsvollen Beta-Testern verwendet werden.
+
+## Stil
+Es soll eine First-Person-Shooter-Mechanik sein. Von der grafischen Umsetzung im Stil der aktuellen Call of Duty Spiele. D.h. absolut perfektes Design, visuell überragende Darstellung, jedes einzelne Element in AAA Qualität - von der Textur über die Spielphysik bis hin zu allem anderen, was du dir vorstellen kannst.
+
+## Gameplay
+Berücksichtige folgende Besonderheiten bei der Umsetzung:
+- Ego-Perspektive, der Character ist statisch (unbeweglich, starrer Blickwinkel).
+- Der Spieler sieht die Hände seines Characters vor sich. Er trägt futuristische "Hightech-Handschuhe", mit denen er Zauber ausführen kann.
+- Szene: Futuristischer Übungsplatz auf einem Raumschiff.
+- Bewegliche Objekte in der Szene: die Hände des Characters, Geschosse, die der Character zaubert, eine Dummy-Puppe für Zielübungen.
+
+## Umsetzung
+Du kannst für die Erzeugung der Visuals und Audios die Higgsfield CLI oder den Higgsfield MCP Server verwenden. Arbeite mit Transparency und Animationen, damit ein nahtloses visuelles Erlebnis auf AAA Niveau entsteht.
+
+
+# Auftrag
+Spawne Sub-Agenten und lasse diese Sub-Agenten jedes Element des Spiels individuell entwickeln und implementieren, sodass das Spiel absolut perfekt wird. Du kannst die einzelnen Elemente iterativ mit /loop implementieren und einen weiteren, unabhängigen Sub-Agenten prüfen lassen, bis die Umsetzung AAA Qualität erreicht hat. Dieser unabhängige Sub-Agent sollte überaus kritisch prüfen, und so lange zurückweisen, bis AAA Qualität erreicht ist.
+
+Iteriere so lange, bis jeder Sub-Agent vollkommen überzeugt von der Qualität der Umsetzung im Vergleich zu aktuellen Call of Duty Games ist. Es sollte sinngemäß beides blind gegenüberstellen, und den besseren auswählen, ohne zu wissen, was von beiden die aktuelle Implementierung ist. Verwende dazu ThreeJS. /loop so lange, bis es absolut perfekt ist. Spawne Sub-Agenten und ultracode.
+
+
+# Rahmenbedingungen
+## Steuerung:
+Die Steuerung erfolgt ausschließlich über Tastatur: 
+W-A-S-D steuert linke Hand, I-J-K-L steuert rechte Hand.
+Spacebar: Abbrechen und Ausgangsposition
+Esc: Popup: "Programm beenden?"
+F1: Hilfe-Popup, das die Tastenbelegung erklärt.
+
+## Fernkampf-Spielmechanik:
+Linke Hand: W: nach oben, A: nach links, S: nach vorne, D: nach rechts. 
+Rechte Hand: I: nach oben, J: nach links, K: nach vorne, L: nach rechts.
+Animation:
+- Hände bewegen sich von Ausgangsposition in Zielposition
+- Kurzes Verweilen
+- Hände kehren in Ausgangsposition zurück
+- Dauer: 1 Sekunde
+Drücken von Spacebar bricht den Zauber ab. Der Charakter kehrt in die Ausgangsposition zurück.
+
+## Umsetzung:
+Es sollen die Zauber "Feuerball", "Wasserstrahl", "Steinschuss" und "Windstoss" implementiert werden. Ein Zauber soll aus 3 Schritten bestehen. Animationsdauer jedes Schritts: 1 Sekunde, am Ende der Animation sind die Hände wieder in Ausgangsposition.
+
+- Schritt 1: 
+Wähle das Element: A + L: Beschwöre Feuer, W + I: Luft, S + K: Wasser, D + J: Erde. Visuell: Die Hightech-Handschuhe werden vom Element umgeben, d.h. Flammen, Wasser, Windströme, Kiesel/Brocken. Der Effekt soll animiert und nicht statisch sein.
+
+- Schritt 2: 
+Der Zauber wird gewählt: S + K: Gerichtetes Geschoss. Die Element-Animation um die Handschuhe verschwindet. Das Geschosse aus Feuer/Luft/Wasser/Erde manifestiert sich (animiert nicht statisch) vor dem Benutzer. Position zwischen den beiden Händen.
+
+- Schritt 3: 
+Die Richtung wird bestimmt (d.h. nach vorne, Umkreis, auf einen selbst, auf den Sidekick). Hier: W + I (voraus). Nun wird das Geschoss auf den Dummy abgeschossen. Der Dummy wird getroffen. Animierter Effekt. Im Anschluss ist der Dummy wieder wie zuvor. Der Spieler kann den nächsten Angriff durchführen.
+
+## Timing
+Gelingt es dem Spieler, nach Abschluss des vorherigen Schritts innerhalb 0,2 Sekunde die nächste Tastenkombination auszulösen, wird der Zauber "stark" (Wirkung +25%). Gelingt ihm das bei beiden Folgeschritten, wird der Zauber überragend (Wirkung +50%). Wird ein Nachfolgeschritt zu früh ausgeführt, wird der Zauber "schwach" (Wirkung -25%). Sind beide zu früh, wird der Zauber "überhastet" (Wirkung -50%). Ein schwaches und ein starkes Timing können sich gegenseitig kompensieren, sodass der Zauber wieder "normal" wird (Wirkung +/-0%).
+
+# Output
+Das Ergebnis soll im Browser lauffähig sein. Verwende HTML/CSS, JavaScript, ThreeJS. Der Prototyp soll über Doppelklicken der index.htm oder über Öffnen eines lokalen Servers, der mit einer server.bat gestartet wird, im Browser spielbar sein.
+
+# Leistungsmaßstab
+Ich bewerte deine Umsetzung nach folgenden Qualitätskriterien mit ihrer jeweiligen Gewichtung:
+- Präsentation (60%): AAA Qualität (Spielumgebung, Bewegungen, Popup-Menüs)
+- Spielbarkeit (40%): Saubere und flüssige Identifikation der Abfolge der Tastaturbefehle (Klick-Combo)
+
+# Arbeitsweise
+- Analysiere zunächst Visuals, Design und Spielmechaniken aus Titeln wie Call of Duty. 
+- Plane die Umsetzung des schrittweise. Spawne für die Umsetzung Sub-Agenten, die in iterativen Schleifen gemeinsam mit "Kritikern" (weitere Sub-Agenten) arbeiten, bis eine AAA Qualität erreicht ist.
+- Erstelle eine kurze Spielanleitung für Tester und Testerinnen des MVP
+
+

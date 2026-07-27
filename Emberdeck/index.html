@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emberdeck</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="game-root">
+    <canvas id="game-canvas" width="320" height="180"></canvas>
+    <div id="hud-overlay"></div>
+    <div id="menu-overlay" class="hidden"></div>
+    <div id="prompt-overlay"></div>
+  </div>
+
+  <!-- Engine -->
+  <script src="js/engine/input.js"></script>
+  <script src="js/engine/renderer.js"></script>
+  <script src="js/engine/entity.js"></script>
+  <script src="js/engine/tilemap.js"></script>
+  <script src="js/engine/collision.js"></script>
+  <script src="js/engine/save.js"></script>
+  <script src="js/engine/audio.js"></script>
+  <script src="js/engine/core.js"></script>
+
+  <!-- Game -->
+  <script src="js/game/cards.js"></script>
+  <script src="js/game/meta.js"></script>
+  <script src="js/game/player.js"></script>
+  <script src="js/game/enemies.js"></script>
+  <script src="js/game/combat.js"></script>
+  <script src="js/game/chest.js"></script>
+  <script src="js/game/characterBuilding.js"></script>
+  <script src="js/game/levels/level-tutorial.js"></script>
+  <script src="js/game/levels/level-01.js"></script>
+
+  <!-- UI -->
+  <script src="js/ui/hud.js"></script>
+  <script src="js/ui/menu.js"></script>
+  <script src="js/ui/prompts.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="js/main.js"></script>
+</body>
+</html>

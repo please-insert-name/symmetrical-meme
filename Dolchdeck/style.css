@@ -1,0 +1,167 @@
+@font-face {
+  font-family: "PixelFallback";
+  src: local("Courier New");
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0a0a12;
+  color: #eee;
+  font-family: "Courier New", "PixelFallback", monospace;
+  image-rendering: pixelated;
+}
+
+#game-root {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.screen { }
+.hidden { display: none !important; }
+
+/* ---------- Start Screen ---------- */
+.title-box {
+  text-align: center;
+  padding: 60px 20px;
+  border: 4px solid #e0b83e;
+  background: linear-gradient(180deg, #1a1a2e, #0a0a12);
+  box-shadow: 0 0 0 4px #000, 0 0 24px rgba(224,184,62,0.3);
+}
+.title-box h1 {
+  font-size: 48px;
+  letter-spacing: 4px;
+  color: #e0b83e;
+  text-shadow: 3px 3px 0 #7a5a1e;
+  margin: 0 0 8px;
+}
+.subtitle { color: #9a9ab0; margin-bottom: 32px; }
+.menu-buttons { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-bottom: 40px; }
+.controls-info {
+  border-top: 2px dashed #444;
+  padding-top: 20px;
+  color: #bbb;
+  font-size: 13px;
+}
+.controls-info h3 { color: #e0b83e; margin-bottom: 10px; }
+
+/* ---------- Buttons ---------- */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  padding: 8px 14px;
+  background: #2a2a3e;
+  color: #eee;
+  border: 2px solid #555;
+  border-radius: 2px;
+  font-size: 13px;
+}
+button:hover:not(:disabled) { border-color: #e0b83e; color: #e0b83e; }
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.primary-btn {
+  background: #2f5d3a;
+  border-color: #4f8f5f;
+  color: #eaffea;
+}
+.primary-btn:hover:not(:disabled) { border-color: #7fffa0; }
+.primary-btn.big { font-size: 16px; padding: 14px 28px; }
+
+.danger-btn { background: #4a1f1f; border-color: #7a3535; color: #ffdada; }
+.sell-btn { background: #4a3a1f; border-color: #7a5c35; }
+
+/* ---------- Sidescroller ---------- */
+#screen-sidescroller { position: relative; text-align: center; }
+#game-canvas {
+  border: 4px solid #333;
+  background: #000;
+  image-rendering: pixelated;
+  max-width: 100%;
+}
+.exit-row { margin-top: 8px; }
+
+#reward-panel {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 560px;
+  max-width: 90%;
+  background: #14141f;
+  border: 3px solid #e0b83e;
+  padding: 24px;
+  z-index: 20;
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
+}
+#reward-panel h2 { color: #e0b83e; margin-top: 0; }
+
+/* ---------- Cards ---------- */
+.card-grid, .reward-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.card-tile {
+  border: 2px solid #555;
+  background: #16161f;
+  padding: 12px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.card-tile strong { font-size: 14px; }
+.card-tile .rarity { font-size: 10px; text-transform: uppercase; color: #9a9ab0; }
+.card-tile p { font-size: 12px; color: #ccc; margin: 4px 0; flex-grow: 1; }
+.card-tile .card-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.card-tile.shop-tile button { width: 100%; }
+
+/* ---------- Deckbuilder ---------- */
+#screen-deckbuilder { padding: 8px 4px 60px; }
+.deck-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #e0b83e;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+.deck-header h1 { color: #e0b83e; margin: 0; font-size: 24px; }
+.gold-display { font-size: 18px; color: #ffd43b; }
+
+.panel {
+  background: #12121c;
+  border: 2px solid #333;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.panel h2 { margin-top: 0; font-size: 16px; color: #e0b83e; }
+.muted { color: #888; font-size: 13px; }
+
+.slot-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.slot-box {
+  flex: 1;
+  min-width: 160px;
+  border: 2px solid #444;
+  padding: 10px;
+  background: #16161f;
+  position: relative;
+}
+.slot-key {
+  position: absolute;
+  top: -12px;
+  left: 8px;
+  background: #e0b83e;
+  color: #111;
+  font-weight: bold;
+  padding: 1px 8px;
+  font-size: 12px;
+}
+.slot-box p { font-size: 12px; color: #bbb; }
+.locked-tag { font-size: 10px; color: #888; }
+
+.nav-row { display: flex; gap: 12px; justify-content: space-between; align-items: center; flex-wrap: wrap; }
